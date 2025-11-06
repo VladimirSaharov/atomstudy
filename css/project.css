@@ -1,0 +1,44 @@
+/* ===============================================
+ * УНИКАЛЬНЫЕ СТИЛИ (для project.html)
+ * =============================================== */
+
+/* Делаем .media в одну колонку на странице "О проекте" */
+.media {
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Немного увеличим отступ между карточками */
+}
+
+/* Стили для текстовых карточек на странице "О проекте" */
+.project-text-card {
+  text-align: left;
+  padding: 1.5rem 2rem; /* Чуть больше отступы для текста */
+}
+
+.project-text-card h2 {
+  font-size: 1.5rem;
+  /* Возьмем один из цветов градиента для акцента */
+  color: #fdbb2d; 
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 0.5rem;
+}
+
+.project-text-card p, 
+.project-text-card li {
+  font-size: 1rem; /* Чуть крупнее для читаемости */
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 1rem;
+}
+
+.project-text-card ul {
+  list-style-position: inside;
+  padding-left: 0.5rem;
+}
+
+ .project-text-card li strong {
+   color: #fff; /* Выделим жирный текст */
+   font-weight: bold; /* Убедимся, что он жирный */
+   display: inline; /* Сбрасываем display: block от .card strong */
+   margin-bottom: 0;
+ }
