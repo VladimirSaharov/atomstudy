@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>3D Модель реактора</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/features.css">
+
+    <script type="module" src="./vendor/model-viewer.min.js"></script>
+
+    <style>
+      /* ... (локальные стили без изменений) ... */
+      .viewer-toggle { display:flex; gap:10px; margin-top:12px; }
+      .viewer-toggle .btn { padding:8px 12px; border-radius:6px; border:1px solid #ccc; background:#fff; cursor:pointer; text-decoration:none; color:inherit; }
+      .viewer-toggle .btn.active { background:#007bff; color:#fff; border-color:#007bff; }
+      #threejs-container { width:100%; height:500px; border-radius:8px; overflow:hidden; background:transparent; display:none; }
+      model-viewer { display:block; width:100%; height:500px; border-radius:8px; }
+    </style>
+</head>
+<body>
+    <div class="container subpage">
+        <header>
+            <h1>Виртуальная модель реактора</h1>
+            <p class="subtitle">3D-просмотр конструкции и компонентов</p>
+        </header>
+        
+        <main class="media" style="grid-template-columns: 1fr; margin-top:16px;">
+            <section class="card" aria-label="3D модель реактора">
+                <strong>Конфигурация: БРЕСТ-ОД-300</strong>
+
+                <div id="modelviewer-wrapper">
+                  <model-viewer 
+                    id="mv"
+                    src="assets/reactor.glb" 
+                    alt="3D модель ядерного реактора"
+                    auto-rotate
+                    camera-controls
+                    shadow-intensity="1"
+                    exposure="1"
+                    ar
+                    ></model-viewer>
+                </div>
+            </section>
+        </main>
+
+        <div class="buttons-container" style="margin-top:1.5rem;">
+            <a class="nav-button" href="index.html" target="_self" rel="noopener">Вернуться на главную</a>
+        </div>
+
+        <footer>
+          <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>✉️ Email: <a href="mailto:info@gmail.com">info@gmail.com</a></li>
+                        <li>📞 Телефон: <a href="tel:+70000000000">8 (000) 000-00-00</a></li>
+                        <li>📍 Адрес: г. Кемеров, ул. Весення, 28</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="team.html">Наша команда</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                  <h3>Список литературы</h3>
+                  <ul>
+                    <li><a href="">Заглушка</a></li>
+                    <li><a href="">Заглушка</a></li>
+                    <li><a href="">Заглушка</a></li>
+                    <li><a href="">Заглушка</a></li>
+                    <li><a href="">Заглушка</a></li>
+                  </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="project.html">О проекте</a></li>
+                        <li><a href="https://kuzstu.ru">Университет</a></li>
+                        <li><a href="technology.html">Наши технологии</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>© 2025 Проект "Прорыв" — концептуальная демонстрация. Не является техническим проектом. Все права защищены.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Intersection Observer для анимаций при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Наблюдение за ВСЕМИ анимируемыми элементами
+        const elementsToAnimate = document.querySelectorAll(
+            '.index-page header, .subpage header, .project-note, .nav-button, section.card, .member-card, .tech-item'
+        );
+        
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>

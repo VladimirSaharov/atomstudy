@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Вечная энергия</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/features.css">
+</head>
+
+<body>
+  <div class="container index-page">
+    <header>
+      <h1>Вечная энергия</h1>
+      <p class="subtitle">Российские ядерщики запустили замкнутую реакцию</p>
+      <p class="author">Владислав Стрекопытов</p>
+    </header>
+
+    <div class="animation-area">
+      <div class="atom">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="nucleus"></div>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <a class="nav-button" href="complex.html" >3D модель комплекса</a>
+      <a class="nav-button" href="reactor.html" >3D модель реактора</a>
+      <a class="nav-button" href="processing.html" >Анимация процесса переработки</a>
+    </div>
+
+    
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li>✉️ Email: <a href="mailto:info@gmail.com">info@gmail.com</a></li>
+            <li>📞 Телефон: <a href="tel:+70000000000">8 (000) 000-00-00</a></li>
+            <li>📍 Адрес: г. Кемеров, ул. Весення, 28</li>
+            <li>Социальные сети: <a href="#">VK</a>, <a href="#">Telegram</a>, <a href="#">YouTube</a></li>
+          </ul>
+        </div>
+
+            <div class="footer-section">
+            <h3>Информация</h3>
+            <ul>
+              <li><a href="team.html">Наша команда</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Список литературы</h3>
+          <ul>
+            <li><a href="https://rosatomnewsletter.com/ru/2024/05/29/systemic-approach-to-generation-iv/?ysclid=mhc7vevxt9642456392">Ядерные реакторы нового поколения</a></li>
+            <li><a href="https://habr.com/ru/articles/388533/?ysclid=mhc7tts733194826421">Замкнутый ядерный цикл: теория и практика</a></li>
+            <li><a href="https://chel.fpieco.ru/articles/vliyanie-atomnoj-energetiki-na-okruzhayushuyu-sredu-i-cheloveka/?ysclid=mhc7tdva5l364810381">Экологическая безопасность атомной энергетики</a></li>
+            <li><a href="https://trends.rbc.ru/trends/innovation/cmrm/688cb10d9a79476fdc18b6ef">Инновации в переработке ядерного топлива</a></li>
+            <li><a href="https://strana-rosatom.ru/2023/11/09/proryv-v-2050-god-kakoj-budet-atomnaya-ene/?ysclid=mhc7ruwquj633693831">Экономика атомной энергетики будущего</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Полезные ссылки</h3>
+          <ul>
+            <li><a href="project.html">О проекте</a></li>
+            <li><a href="https://kuzstu.ru">Университет</a></li>
+            <li><a href="technology.html">Наши технологии</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>© 2025 Проект "Прорыв" — концептуальная демонстрация. Не является техническим проектом. Все права защищены.</p>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+      // Intersection Observer для анимаций при скролле
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, { threshold: 0.1 });
+
+      // Наблюдение за ВСЕМИ анимируемыми элементами
+      const elementsToAnimate = document.querySelectorAll(
+          '.index-page header, .subpage header, .project-note, .nav-button, section.card, .member-card, .tech-item'
+      );
+      
+      elementsToAnimate.forEach(element => {
+          observer.observe(element);
+      });
+  </script>
+
+</body>
+</html>
